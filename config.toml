@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://blog-c94.pages.dev/'
 languageCode = 'en-us'
 title = "Don't Fear Tech"
 theme = "risotto"
@@ -21,3 +21,4 @@ url = "https://www.linkedin.com/in/eyalmor-ent/"
 [taxonomies]
 tag = "tags"
 category = "categories"
+
