@@ -10,18 +10,13 @@ mode = "dark-mode"
 [[params.socialLinks]]
 icon = "fab fa-github"
 title = "GitHub"
-url = "https://github.com/joeroe/risotto"
-
-[[params.socialLinks]]
-icon = "fab fa-twitter"
-title = "Twitter"
-url = "https://"
+url = "https://github.com/eyalmor-ent/"
 
 
 [[params.socialLinks]]
 icon = "fa-brands fa-linkedin"
 title = "Linkedin"
-url = "https://"
+url = "https://www.linkedin.com/in/eyalmor-ent/"
 
 [taxonomies]
 tag = "tags"
