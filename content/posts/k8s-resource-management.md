@@ -94,4 +94,3 @@ Similar to Helm, Tanka
 | Kustomize |   YAML   |    False    |     JSON Merge RFC     |      False       |
 | Terraform | HCL | True|False | HCL | True|
 | Kapitan | Depends |
-Helm vs Kustomize vs  vs Tanka vs  vs Dagger
