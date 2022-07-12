@@ -1,11 +1,13 @@
 ---
 title: "Helm vs Kustomize vs Terraform vs Tanka vs Kapitan vs Dagger"
 date: 2022-05-22T18:05:47+03:00
-draft: true
+draft: false
 type: post
 categories: [development, k8s, kubernetes]
 tags: [hugo,content,static site generator]
 ---
+
+> This post is WIP.
 
 ## Introduction
 

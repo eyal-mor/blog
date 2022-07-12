@@ -1,10 +1,12 @@
 ---
 title: "Kustomize Tutorial"
-draft: true
+draft: false
 type: post
 tags: [development, k8s, kubernetes, kustomize, kubectl -k]
 series: [kubernetes management]
 ---
+
+> This post is WIP.
 
 ## Introduction
 
