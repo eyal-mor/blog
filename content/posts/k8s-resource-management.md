@@ -4,12 +4,12 @@ date: 2022-05-22T18:05:47+03:00
 draft: false
 type: post
 categories: [development, k8s, kubernetes]
-tags: [hugo,content,static site generator]
+tags: [hugo, content, static site generator]
 ---
 
 > This post is WIP.
 
-## Introduction
+## Preface
 
 K8S has become more than a way to run pods. It had become a ubiquitous API layer for cloud resource management.
 
@@ -32,18 +32,6 @@ This movement is now called GitOps, but it had many names & shapes before.
 Cloud Native Management
 With all that theory out of the way, let's talk practice.
 
-Let's first see how the tools we are discussing are similar
-
-Similarities:
-* Package management / Versioning - code reusability across projects
-* Templating - Variable substitutions in a deployment
-* CREATE, READ, UPDATE REST API calls (we will discuss DELETE later) - Operations against an API
-
-Differences:
-* State Management
-* Dependency resolution
-
-
 ### Helm
 
 The Helm project has been used from almost the beginning of the K8S project.
@@ -64,7 +52,7 @@ Kustomize's power comes from its simplicity. It doesn't manage state, doesn't ha
 
 It is purely a data structure merger. Want to merge 2 objects? Merge lists? Override lists? Merge nested data structures? Kustomize probably has a solution for you.
 
-### Terraform
+### Terraform / OpenTofu
 
 At a high level, Terraform is a templating language and state management solution for the Cloud.
 It's power comes from its providers.
@@ -85,12 +73,22 @@ Jsonnet unlike YAML is a programming language with a runtime.
 
 That means we can leverage our development experience from other languages, and apply it to a new language.
 
-Similar to Helm, Tanka
+# Comparison
 
+| Tool      | Language | Type Safety |       Templating       | State Management |                                                                Stars                                                                |
+| :-------- | :------: | :---------: | :--------------------: | :--------------: | :---------------------------------------------------------------------------------------------------------------------------------: |
+| Helm      |   YAML   |  False'ish  | Go Templating Language |       True       |                 [![GitHub stars](https://img.shields.io/github/stars/helm/helm.svg)](https://github.com/helm/helm/)                 |
+| Kustomize |   YAML   |    False    |     JSON Merge RFC     |      False       | [![GitHub stars](https://img.shields.io/github/stars/kubernetes-sigs/kustomize.svg)](https://github.com/kubernetes-sigs/kustomize/) |
+| Terraform |   HCL    |  True'ish   |          HCL           |       True       |         [![GitHub stars](https://img.shields.io/github/stars/opentofu/opentofu.svg)](https://github.com/opentofu/opentofu/)         |
+| Tanka     | Jsonnet  |    True     |        Jsonnet         |    False'ish     |             [![GitHub stars](https://img.shields.io/github/stars/grafana/tanka.svg)](https://github.com/grafana/tanka/)             |
 
-| Tool      | Language | Type Safety |       Templating       | State Management |
-| :-------- | :------: | :---------: | :--------------------: | :--------------: |
-| Helm      |   YAML   |  False'ish  | Go Templating Language |       True       |
-| Kustomize |   YAML   |    False    |     JSON Merge RFC     |      False       |
-| Terraform | HCL | True|False | HCL | True|
-| Kapitan | Depends |
+## Conclusions
+
+When working with K8S, I personally strive to use the most popular, most cost effective and the easiest tool to google my issues with.
+
+This would make Helm or OpenTofu the winner, however, the bugs due to the unsafe usage of YAML + Golang as a templating language may cause grief.
+For my personal projects I lean towards OpenTofu, as HCL outputs JSON, which doesn't have any of the pitfalls of Golang templating wrapping around YAML.
+
+Additionally, OpenTofu is versatile enough to handle Helm as well through a provider.
+
+With that said, the best recommendation is to use what you already know to achieve your goals, in this case, deploying Pods.
